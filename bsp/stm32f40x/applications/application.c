@@ -15,11 +15,13 @@
 
 #include <board.h>
 #include <rtthread.h>
+#include <drivers/pin.h>
+#include "led.h"
 
 #ifdef RT_USING_LWIP
-#include <lwip/sys.h>
-#include <lwip/api.h>
-#include <netif/ethernetif.h>
+//#include <lwip/sys.h> 
+//#include <lwip/api.h>
+//#include <netif/ethernetif.h>
 #include "stm32f4xx_eth.h"
 #endif
 
@@ -29,6 +31,9 @@
 
 void rt_init_thread_entry(void* parameter)
 {
+		
+		rt_pin_mode(LED0, PIN_MODE_OUTPUT);
+
     /* GDB STUB */
 #ifdef RT_USING_GDB
     gdb_set_device("uart6");
@@ -41,15 +46,27 @@ void rt_init_thread_entry(void* parameter)
         extern void lwip_sys_init(void);
 
         /* register ethernetif device */
-        eth_system_device_init();
+        //eth_system_device_init();
 
-        rt_hw_stm32_eth_init();
+        //rt_hw_stm32_eth_init();
 
         /* init lwip system */
-        lwip_sys_init();
+        //lwip_sys_init();
         rt_kprintf("TCP/IP initialized!\n");
     }
 #endif
+		
+
+		while(1)
+		{
+			rt_pin_write(LED0, PIN_HIGH);
+			rt_kprintf("led on\n"); 
+			rt_thread_delay(100);
+			
+			rt_pin_write(LED0, PIN_LOW);
+			rt_kprintf("led off\n"); 
+			rt_thread_delay(100);
+		}
 }
 
 int rt_application_init()

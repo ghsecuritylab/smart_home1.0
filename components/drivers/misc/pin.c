@@ -29,6 +29,7 @@
 #endif
 
 static struct rt_device_pin _hw_pin;
+
 static rt_size_t _pin_read(rt_device_t dev, rt_off_t pos, void *buffer, rt_size_t size)
 {
     struct rt_device_pin_status *status;

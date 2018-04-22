@@ -64,6 +64,8 @@ void rt_hw_board_init(void);
 
 #define FINSH_DEVICE_NAME   CONSOLE_DEVICE
 
-#endif
 
 // <<< Use Configuration Wizard in Context Menu >>>
+
+#endif
+

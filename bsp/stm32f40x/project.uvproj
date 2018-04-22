@@ -363,7 +363,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F40_41xxx</Define>
               <Undefine></Undefine>
-              <IncludePath>Libraries/STM32F4xx_StdPeriph_Driver/inc;Libraries/CMSIS/ST/STM32F4xx/Include;Libraries/CMSIS/Include;applications;.;drivers;../../include;../../libcpu/arm/cortex-m4;../../libcpu/arm/common;../../components/drivers/include;../../components/drivers/include;../../components/drivers/include;../../components/finsh</IncludePath>
+              <IncludePath>Libraries/STM32F4xx_StdPeriph_Driver/inc;Libraries/CMSIS/ST/STM32F4xx/Include;Libraries/CMSIS/Include;applications;.;drivers;../../include;../../libcpu/arm/cortex-m4;../../libcpu/arm/common;../../components/drivers/include;../../components/drivers/include;..\..\components\finsh;..\..\components\net\lwip-1.4.1\src\include\lwip;..\..\components\net\lwip-1.4.1\src\include;..\..\components\net\lwip-1.4.1\src;..\..\components\net\lwip-1.4.1\src\arch\include;..\..\components\net\lwip-1.4.1\src\include\ipv4</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -610,6 +610,11 @@
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>drivers/gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\drivers\led.h</FilePath>
             </File>
           </Files>
         </Group>

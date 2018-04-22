@@ -200,7 +200,8 @@ static int stm32_getc(struct rt_serial_device *serial)
  * @param mem_base_addr memory 0 base address for DMA stream
  */
 static void dma_uart_config(struct rt_serial_device *serial, uint32_t setting_recv_len,
-        void *mem_base_addr) {
+        void *mem_base_addr) 
+{
     struct stm32_uart *uart = (struct stm32_uart *) serial->parent.user_data;
     DMA_InitTypeDef DMA_InitStructure;
 
@@ -625,7 +626,8 @@ static void NVIC_Configuration(struct stm32_uart *uart)
     NVIC_Init(&NVIC_InitStructure);
 }
 
-static void DMA_Configuration(struct rt_serial_device *serial) {
+static void DMA_Configuration(struct rt_serial_device *serial) 
+{
     struct stm32_uart *uart = (struct stm32_uart *) serial->parent.user_data;
     struct rt_serial_rx_fifo *rx_fifo = (struct rt_serial_rx_fifo *)serial->serial_rx;
     NVIC_InitTypeDef NVIC_InitStructure;
@@ -672,7 +674,7 @@ int stm32_hw_usart_init(void)
     /* register UART1 device */
     rt_hw_serial_register(&serial1,
                           "uart1",
-                          RT_DEVICE_FLAG_RDWR | RT_DEVICE_FLAG_INT_RX | RT_DEVICE_FLAG_DMA_RX,
+                          RT_DEVICE_FLAG_RDWR | RT_DEVICE_FLAG_INT_RX | RT_DEVICE_FLAG_DMA_TX,
                           uart);
 #endif /* RT_USING_UART1 */
 

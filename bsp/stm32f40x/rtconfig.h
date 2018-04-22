@@ -70,7 +70,7 @@
 #define RT_USING_PIN
 
 /* Using Hardware Timer framework */
-//#define RT_USING_HWTIMER
+#define RT_USING_HWTIMER
 
 /* SECTION: Console options */
 #define RT_USING_CONSOLE
@@ -78,7 +78,7 @@
 #define RT_CONSOLEBUF_SIZE	128
 
 /* SECTION: finsh, a C-Express shell */
-#define RT_USING_FINSH
+//#define RT_USING_FINSH
 /* Using symbol table */
 #define FINSH_USING_SYMTAB
 #define FINSH_USING_DESCRIPTION
@@ -107,7 +107,7 @@
 // #define RT_USING_DFS_ROMFS
 
 /* SECTION: lwip, a lighwight TCP/IP protocol stack */
-/* #define RT_USING_LWIP */
+#define RT_USING_LWIP 
 /* LwIP uses RT-Thread Memory Management */
 #define RT_LWIP_USING_RT_MEM
 /* Enable ICMP protocol*/

@@ -88,12 +88,14 @@ static const struct pin_index pins[] =
     {53, RCC_AHB1Periph_GPIOA, GPIOA, GPIO_Pin_4},
 };
 
-#define ITEM_NUM(items) sizeof(items)/sizeof(items[0])
+//#define ITEM_NUM(items) sizeof(items)/sizeof(items[0])
+uint32_t ITEM_NUM = 0;
+	
 const struct pin_index *get_pin(uint8_t pin)
 {
     const struct pin_index *index;
 
-    if (pin < ITEM_NUM(pins))
+    if (pin < ITEM_NUM)
     {
         index = &pins[pin];
     }
@@ -205,9 +207,14 @@ const static struct rt_pin_ops _stm32_pin_ops =
 
 int stm32_hw_pin_init(void)
 {
+		/* 初始化时获取总的GPIO数目 */
+		ITEM_NUM = sizeof(pins)/sizeof(pins[0]);
+	
     rt_device_pin_register("pin", &_stm32_pin_ops, RT_NULL);
+	
     return 0;
 }
+
 INIT_BOARD_EXPORT(stm32_hw_pin_init);
 
 #endif
